@@ -6,6 +6,7 @@ import os
 import sib_api_v3_sdk
 from sib_api_v3_sdk.rest import ApiException
 from dotenv import load_dotenv  # Importa load_dotenv
+from fastapi.responses import JSONResponse
 
 load_dotenv()
 app = FastAPI()
@@ -74,7 +75,8 @@ async def submit_form(data: FormData, firestore_service: FirestoreService = Depe
 
         return {"status": "success", "sessionId": session.id}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        print(f"Error en /submit-form: {str(e)}")
+        return JSONResponse(status_code=500, content={"detail": str(e)})
 
 
 # Función para enviar correo de confirmación
