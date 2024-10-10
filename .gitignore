@@ -1,1 +1,23 @@
 .env
+# Archivos compilados de Python
+*.pyc
+*.pyo
+__pycache__/
+# Entornos virtuales
+venv/
+env/
+# Archivos de log
+*.log
+logs/
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+# Directorio de configuración de VSCode
+.vscode/
+# Archivos de base de datos
+*.sqlite3
+*.db
+# Archivos de distribución
+dist/
+build/
+*.egg-info/
